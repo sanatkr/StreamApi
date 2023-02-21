@@ -1,9 +1,11 @@
 package Map;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class MapDemo {
+public class StreamConcepts {
 
 	public static void main(String[] args) {
 		
@@ -25,6 +27,11 @@ public class MapDemo {
 		Double reduce = list.stream().map(emp -> emp.getSalary()).reduce(0.0,Double::sum);
 		
 		System.out.println("Total sum is :"+reduce);
+		
+		// using max
+		Optional<Employee> max = list.stream().max(Comparator.comparing(Employee::getSalary));
+		
+		System.out.println("maximum salary is :"+max.get().getSalary());
 		
 	}
 
