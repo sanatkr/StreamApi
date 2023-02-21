@@ -21,6 +21,11 @@ public class MapDemo {
 		List<String> res2 = list.stream().flatMap(emp -> emp.getProjects().stream()).collect(Collectors.toList());
 		System.out.println(res2);
 		
+		// using reduce()
+		Double reduce = list.stream().map(emp -> emp.getSalary()).reduce(0.0,Double::sum);
+		
+		System.out.println("Total sum is :"+reduce);
+		
 	}
 
 }
